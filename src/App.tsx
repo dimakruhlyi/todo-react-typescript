@@ -1,12 +1,14 @@
 import React from 'react';
 import { Navbar } from './components/Navbar';
+import {TodoForm} from './components/TodoForm';
 
 function App() {
   return (
     <React.Fragment>
       <Navbar />
       <div className="container">
-        <h1>Application</h1>
+        <TodoForm />
+
       </div>
     </React.Fragment>
     
