@@ -19,12 +19,29 @@ function App() {
     })
   }
 
+  const toggleHandler = (id: number) => {
+    setTodos(prev =>
+      prev.map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed
+        }
+      }
+      return todo;
+    }))
+  }
+
+  const removeHandler = (id: number) => {
+    setTodos(prev => prev.filter(todo => todo.id !== id))
+  }
+
   return (
     <React.Fragment>
       <Navbar />
       <div className="container">
         <TodoForm onAdd = {AddHandler}/>
-        <TodoList todos = {todos}/>
+        <TodoList todos = {todos} onToggle = {toggleHandler} onRemove = {removeHandler}/>
       </div>
     </React.Fragment>
     
